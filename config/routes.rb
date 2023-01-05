@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root  to: 'home#index'
-  resources :users
-  # resources :users,:only => [:new, :create,:destroy]
+  post '/users', to: 'users#create'
+  get '/users/new', to: 'users#new', as: 'new_user'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     password: 'users/password',

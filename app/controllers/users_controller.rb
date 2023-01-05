@@ -3,24 +3,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show 
-    @user = User.find(params[:id])
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = 'user has created successfully'
+      if user_signed_in?
+        flash[:notice] = 'Created successfully'
+      else
+        flash[:notice] = 'Account Created Successfully please Login to access your account'
+      end 
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @user = User.find
-    @user.destroy
-    redirect_to rooot_path
   end
 
   private

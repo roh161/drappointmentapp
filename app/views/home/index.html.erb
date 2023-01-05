@@ -11,12 +11,12 @@
             <h5 class ="text-secondary">Total <%= User.count%> User</h5>
         </h3>
         <h2>All Users</h2>
+        <%= link_to "Create Doctor or Patient",new_user_path%>
         <% @users.each do |user| %>
             <li>          
                 <%= user.email%>( <%= user.user_role%> )
             </li>
         <%end%>
-        <%= link_to "Create Doctor or Patient",new_user_path%>
     <%end%>
 <%end%>
 
