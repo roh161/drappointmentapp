@@ -1,0 +1,21 @@
+<% if user_signed_in?%>
+	<table class="table table-striped table-hover">
+			<thead class="table-info">
+				<tr class="header">
+					<th>Doctor Name</th>
+					<th>Email Id</th>					
+					<th class="text-center bg-dark text-light">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @doctors.each do |d| %>
+					<tr>
+						<td><%= d.name%></td>
+						<td><%= d.email%></td>
+						<td><%= button_to "Create Appointment", new_user_appointment_path(d.id), method: :get, class: "btn btn-sm btn-success text-light" %> </td>					
+					</tr>
+				<%end%>
+			</tbody>
+    </table>
+<% end %>	
+

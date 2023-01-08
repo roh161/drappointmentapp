@@ -1,6 +1,5 @@
 <% if user_signed_in? %>
-  <%= form_with model: @user do |form| %>
-
+  <%= form_for(@user, url: admin_index_path) do |form| %>
     <div class="field">
     <%= form.label :Select_User_Role %><br />
     <%= form.select :user_role, ['Doctor', 'Patient'], autofocus: true %>

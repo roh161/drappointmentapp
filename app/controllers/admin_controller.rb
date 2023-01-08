@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class AdminController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -6,11 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      if user_signed_in?
-        flash[:notice] = 'Created successfully'
-      else
-        flash[:notice] = 'Account Created Successfully please Login to access your account'
-      end 
+      flash[:notice] = 'Created successfully'
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
