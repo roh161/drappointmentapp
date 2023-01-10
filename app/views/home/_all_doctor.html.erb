@@ -12,7 +12,7 @@
 					<tr>
 						<td><%= d.name%></td>
 						<td><%= d.email%></td>
-						<td><%= button_to "Create Appointment", new_user_appointment_path(d.id), method: :get, class: "btn btn-sm btn-success text-light" %> </td>					
+						<td><%= link_to "Create Appointment", new_appointment_path, method: :get, class: "btn btn-sm btn-success text-light" %> </td>					
 					</tr>
 				<%end%>
 			</tbody>

@@ -3,6 +3,9 @@
 <% if user_signed_in? %>
     <h4>All Doctors</h4>
     <%= render "home/all_doctor" %>
+    <% if current_user.user_role.downcase == 'doctor' %>
+        <%= link_to "See appointments", doctor_index_path%>
+    <% end %>
     <% if current_user.user_role.downcase == 'admin' %>
         <hr>
         <h2 class='text-center'>Admin Panel</h2>
